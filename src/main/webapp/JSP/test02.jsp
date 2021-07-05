@@ -13,7 +13,7 @@
 	</head>
 	<body>
 		<div class="container">
-			<h1>날짜,시간 링크</h1>
+			<div class="display-3">날짜,시간 링크</div>
 			<a  class = "btn btn-info" href = '/jsp/test02current.jsp?whatformat=time'>현재시간 확인 a 태그</a>
 			<button class = "btn btn-info" onclick="location.href = '/jsp/test02current.jsp?whatformat=time'">현재 시간 확인</button>
 			<button class = "btn btn-success" onclick="location.href = '/jsp/test02current.jsp?whatformat=date'">현재 날짜 확인</button>
