@@ -22,7 +22,7 @@
 	<%-- jsp 주석 안보임 --%>
 	
 	<!--  주석 -->
-	<b>합계: </b> <u><%=sum %></u>
+	<b>합계: </b> <b><%=sum %></b>
 	
 	<input type="text" value="<%=sum %>">
 	

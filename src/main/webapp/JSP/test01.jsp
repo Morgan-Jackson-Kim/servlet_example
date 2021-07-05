@@ -12,7 +12,7 @@
 <body>
 	
 	<% int[] scores = {80,90,100,95,80};
-		int sum = 0;
+		float sum = 0;
 		for(int i = 0 ; i < scores.length ; i ++){
 			sum += scores[i];
 		}
@@ -25,7 +25,14 @@
 	
 	<%
 		int testScore = 0;
+		sum = 0;
 		List<String> scoreList = Arrays.asList(new String[]{"X", "O", "O", "O", "X", "O", "O", "O", "X", "O"});
+		for(String answer:scoreList){
+			if(answer.equals("O")){
+				sum +=10;
+			}
+		}
+		//도 가능하다.
 		for (int i = 0; i < scoreList.size() ; i++){
 			if ( scoreList.get(i).equals("O")){
 				testScore += 10;
@@ -33,14 +40,14 @@
 		}
 		
 	%>
+	
 	<div>
 		채점 결과 <%= testScore %>
 	</div>
 	
 	<%!
-		int sumN = 0;
 		public int sumtoN(int A) {
-		
+		int sumN = 0;
 		for(int i = 1 ; i <= A; i ++){
 			sumN += i;
 		}
