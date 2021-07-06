@@ -20,7 +20,7 @@
 	<body>
 		<div class="container">
 			<h1>체격 조건 입력</h1>
-			<form method="get" action="/jsp/test03BMI.jsp" class=input-group>
+			<form method="get" action="/JSP/test03BMI.jsp" class=input-group>
 			<label class="d-flex"><input type="text" class="form-control input-size" name ="userHeight">cm</label> 
 			<label class="d-flex"><input type="text" class="form-control input-size" name ="userWeight">kg </label> 
 			<input type="submit" class="btn btn-primary" value="계산">
