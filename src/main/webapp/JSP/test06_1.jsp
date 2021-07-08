@@ -55,24 +55,18 @@
 					<th class="col-8">품목</th>
 				</tr>
 				<% 
-				for(int i = 0 ; i<goodsList.size(); i++){
+					for(int i = 0 ; i<goodsList.size(); i++){
 						
 				%>
 				<tr>
 					<td>
-					<% out.println(i+1);
-					
-					%>
+					<% out.println(i+1);%>
 					</td>
 					<td>
-					<%
-						out.println(goodsList.get(i));
-					%>
+					<%out.println(goodsList.get(i));%>
 					</td>
 				</tr>
-				<%
-					}
-				%>
+				<%	} %>
 			</table>
 		</div>
 	</div>

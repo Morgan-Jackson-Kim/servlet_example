@@ -30,12 +30,11 @@
 		    list.add(map);
 	%>
 	<%
-		String menuName = request.getParameter("menuName");
-		String point4 = request.getParameter("under4");
-
-		out.println(list.get(1).get("point"));
+		String menuKeyword = request.getParameter("menu");
+		String isFilter = request.getParameter("starPointFilter");
 	
-	%>
+	%>	
+
 	
 	<div class="container">
 		<h1 class="text-center mt-4">검색 결과</h1>
@@ -44,38 +43,26 @@
 					<th class="col-4">메뉴</th>
 					<th class="col-4">상호</th>
 					<th class="col-4">별점</th>
-			</tr>
-			<% 
-				
-				for(int i = 0 ; i<list.size(); i++){
-					if(point4.equals("under4")){
-						
-						continue;
-					}
-					if(list.get(i).get("menu").equals(menuName)){
-						
+			</tr>	
+			<tbody>		
+			<% 				
+				for(Map<String, Object> info:list){
+					if(info.get("menu").equals(menuKeyword)){
+						Double point = (Double)info.get("point");
+						if(isFilter != null && isFilter.equals("true") && point < 4.0){
+							continue;
+						}
 			%>
 				<tr>
-					<td>
-					<% 
-						out.println(list.get(i).get("menu"));
-					%>
-					</td>
-					<td>
-					<%
-						out.println(list.get(i).get("name"));
-					%>
-					</td>
-					<td>
-					<%
-						out.println(list.get(i).get("point"));
-					%>
-					</td>
+					<td><%= info.get("menu") %></td>
+					<td><%= info.get("name") %></td>
+					<td><%= info.get("point") %></td>
 				</tr>
-				<%	
+			<%	
 					}
 				}
-				%>
+			%>
+			</tbody>
 		</table>
 	</div>
 

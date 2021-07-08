@@ -15,10 +15,10 @@
 
 	<div class="container">
 		<h1>메뉴검색</h1>
-		<form method="post" action="/JSP/test07_2.jsp">
+		<form method="get" action="/JSP/test07_2.jsp">
 			<div class="d-flex">
-			<input class="form-control col-4" name="menuName">
-			<label class="ml-3"><input type="checkbox" name="under4">4점 이하 제외</label>
+				<input type="text" class="form-control col-4" name="menu">
+				<label class="ml-3"><input type="checkbox" name="starPointFilter" value="true" >4점이하제외</label>
 			</div>
 			<input type="submit" class="btn btn-success mt-2" value="검색">
 		</form>
