@@ -16,7 +16,6 @@
 		out.println(today);
 		
 		//심플 데이트 포멧 출력
-		
 		SimpleDateFormat format = new SimpleDateFormat("yyyy년 MM월 dd일 HH:mm:ss");
 		out.println(format.format(today.getTime()) + "<br>");
 		
@@ -32,6 +31,34 @@
 		today.add(Calendar.YEAR, +6);
 		
 		out.println(format.format(today.getTime()) + "<br>");
+		
+		//Calendar로 정보 얻기
+		int weeks = today.get(Calendar.WEEK_OF_YEAR);
+		
+		out.println(weeks);
+	
+		int day = today.get(Calendar.DAY_OF_WEEK);
+		
+		out.println(day);
+		
+		//날짜 비교
+		Calendar otherDay = Calendar.getInstance();
+		otherDay.add(Calendar.DATE, 36666);
+		
+		int result = today.compareTo(otherDay);
+		
+		out.println(result);
+		//앞의 객체가 더 크면 1
+		// 같으면 0
+		// 앞의 객체가 더 작으면 -1
+		
+		if(result>0){
+			out.println("앞 객체가 더 크다");
+		} else if (result == 0){
+			out.println("앞 와 같다");
+		} else if (result < 0){
+			out.println("앞 객체가 더 작다");
+		}
 
 		
 	%>
