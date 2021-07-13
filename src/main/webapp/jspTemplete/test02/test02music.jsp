@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>멜롱챠트</title>
+<title>노래 세부정보</title>
  <!-- bootstrap CDN link -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
@@ -100,6 +100,8 @@
     musicInfo.put("composer", "아이유,이종훈,이채규");
     musicInfo.put("lyricist", "아이유");
     musicList.add(musicInfo);
+    
+    int targetId = Integer.parseInt(request.getParameter("id"));
 %>
 
 
@@ -109,38 +111,42 @@
 	
 	<section>
 		<div class="border border-success mainbox d-flex">
-			<img class="m-3" alt="아티스트 이미지" src="<%= artistInfo.get("photo") %>">
-			<div class="m-3">
-			<h1><%= artistInfo.get("name") %></h1>
-			<h4 class="mt-3"><%= artistInfo.get("agency") %> <br>
-				<%= artistInfo.get("debute") %>
-			 </h4>
-			  </div>
+			<% for(Map<String, Object> item:musicList){
+				if(item.get("id").equals(targetId)){ %>
+			<img class="m-3" alt="앨범 이미지" src="<%= item.get("thumbnail") %>">
+			
+			<div class="m-2">
+			<span class="display-4"><%= item.get("title") %></span>
+			<h4 class="mt-2 font-weight-bold text-success"><%=item.get("singer") %> <br></h4>
+			<table>
+				<tbody>
+					<tr>
+						<td>앨범</td>
+						<td><%=item.get("album")%></td>
+					</tr>
+					<tr>
+						<td>재생시간</td>
+						<td><% out.println( (int)item.get("time")/60 + ":" + (int)item.get("time")%60);  %></td>
+					</tr>
+					<tr>
+						<td>작곡가</td>
+						<td><%=item.get("composer")%></td>
+					</tr>
+					<tr>
+						<td>작사가</td>
+						<td><%=item.get("lyricist")%></td>
+					</tr>
+				</tbody>
+			</table>
+			 </div>
+			 <% } } %>
 		</div>
 		<br>
 		<br>
-		<h2>곡 목록</h2>
+		<h2>가사</h2>
+		<hr>
+		<h4>가사 정보 없음</h4>
 		
-		<table class="table text-center font-weight-bold">
-			<thead>
-				<th>no</th>
-				<th>제목</th>
-				<th>앨범</th>
-			</thead>
-				
-			<tbody>	
-			<% 
-				for(Map<String,Object> item: musicList){
-							
-				%>
-					<tr>
-						<td><%= item.get("id") %></td>
-						<td><a href="/jspTemplete/test02/test02music.jsp?id=<%= item.get("id") %>"><%= item.get("title") %></a></td>
-						<td><%= item.get("album") %></td>
-					</tr>
-						<% 	}  %>
-				</tbody>
-			</table>
 		
 		
 	</section>
