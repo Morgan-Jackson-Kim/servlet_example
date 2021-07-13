@@ -54,6 +54,9 @@
     list.add(map);
     map = new HashMap<String, String>() {{ put("ch", "121"); put("name", "KBSN 스포츠"); put("category", "스포츠"); } };
     list.add(map);
+    
+    String targetCategory = request.getParameter("category");
+    
 %>
 
 	<div class="container">
@@ -72,16 +75,23 @@
 				<tbody>	
 				<% 
 					for(Map<String, String> item:list){
-						
+						//특정 카테고리만 출력
+						// targetCategory 가 null 일때 무조건 참이 되도록
+						if(targetCategory == null || 
+								item.get("category").equals(targetCategory)){
+							
 				%>
 					<tr>
 						<td><%= item.get("ch") %></td>
 						<td><%= item.get("name") %></td>
 						<td><%= item.get("category") %></td>
 					</tr>
-						<%}	%>
+						<%  }  
+						}	%>
 				</tbody>
 			</table>
+			
+			
 		</section>
 		<jsp:include page="footer.jsp"/>
 	
