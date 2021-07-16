@@ -67,9 +67,15 @@ public class MysqlService {
 	}
 	
 	// 접속 끊기 메소드
-	public void disconnect () throws SQLException {
-		this.statement.close();
-		this.conn.close();
+	public void disconnect () {
+		try {
+			this.statement.close();
+			this.conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 	
 }
